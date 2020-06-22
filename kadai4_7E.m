@@ -1,17 +1,10 @@
 Tmax=10000;Xmax=100;
 A=zeros(Xmax,Xmax,Tmax);I=zeros(Xmax,Xmax,Tmax);
-A(:,:,1)=0.1*rand(Xmax,Xmax);%
-%A(46:55,26:35,1)=1; %
-%A(50:51,50:51,1)=1; %A(26:30,86:90,1)=1; %A(46:55,:,1)=1; 
-%A(46:55,:,1)=1;A(:,46:55,1)=1; 
-% for X=1:Xmax
-%     A(X,X)=1;A(Xmax-X+1,X)=1;
-% end
+A(:,:,1)=rand(Xmax,Xmax);
 Ap=zeros(Xmax,Xmax);Ip=zeros(Xmax,Xmax);
 dt=0.1;dx=1;dx2=dx*dx;
 da=0.02;di=0.5;ka=0.03;ki=0.06;
-c1=0.08;c2=-0.08;c3=0.1;c4=0.11;c5=0;c6=-0.15;%c3=0.01;%
-c3=0.2;
+c1=0.08;c2=-0.08;c3=0.1;c4=0.11;c5=0;c6=-0.15;
 Apmax=0.2;Ipmax=0.5;
 Atemp=A(:,:,1);Itemp=I(:,:,1);
 Aright=Atemp;Aleft=Atemp;Aup=Atemp;Adown=Atemp;
