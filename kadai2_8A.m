@@ -1,9 +1,9 @@
-M=ceil(rand*3);%1=グー 2=チョキ 3=パー
+M=ceil(rand*3);
 if M==1
-    Janken='グー';
+    Janken='繧ｰ繝ｼ';
 elseif M==2
-    Janken='チョキ'; 
+    Janken='繝√Ι繧ｭ'; 
 else
-    Janken='パー';
+    Janken='繝代�ｼ';
 end
 disp(Janken);
