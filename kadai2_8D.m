@@ -4,41 +4,41 @@ for J=1:10
     for I=1:2
         switch M(I,J)
             case 1
-                Janken='ƒO[';
+                Janken='ã‚°ãƒ¼';
             case 2
-                Janken='ƒ`ƒ‡ƒL';
+                Janken='ãƒãƒ§ã‚­';
             case 3
-                Janken='ƒp[';
+                Janken='ãƒ‘ãƒ¼';
         end
-        disp(strcat('ƒ`[ƒ€',num2str(I),'‚Ì',num2str(J),'l–Ú‚Í', Janken,'‚Å‚·'));
+        disp(strcat('ãƒãƒ¼ãƒ ',num2str(I),'ã®',num2str(J),'äººç›®ã¯', Janken,'ã§ã™'));
     end
     switch M(1,J)
-        case 1%ƒ`[ƒ€‚P‚ªƒO[‚Ì‚Æ‚«
-            if M(2,J)==2%ƒ`[ƒ€‚Q‚ªƒ`ƒ‡ƒL‚Ì‚Æ‚«
-                Kekka='ƒ`[ƒ€‚P‚ÌŸ‚¿';Team1=Team1+1;
-            elseif M(2,J)==3%ƒ`[ƒ€‚Q‚ªƒp[‚Ì‚Æ‚«
-                Kekka='ƒ`[ƒ€‚Q‚ÌŸ‚¿';Team2=Team2+1;
-            else %ƒ`[ƒ€‚Q‚ªƒO[‚Ì‚Æ‚«
-                Kekka='‚ ‚¢‚±';Aiko=Aiko+1;
+        case 1%ãƒãƒ¼ãƒ ï¼‘ãŒã‚°ãƒ¼ã®ã¨ã
+            if M(2,J)==2
+                Kekka='ãƒãƒ¼ãƒ ï¼‘ã®å‹ã¡';Team1=Team1+1;
+            elseif M(2,J)==3
+                Kekka='ãƒãƒ¼ãƒ ï¼’ã®å‹ã¡';Team2=Team2+1;
+            else
+                Kekka='ã‚ã„ã“';Aiko=Aiko+1;
             end
-        case 2%ƒ`[ƒ€‚P‚ªƒ`ƒ‡ƒL‚Ì‚Æ‚«
-            if M(2,J)==1%ƒ`[ƒ€‚Q‚ªƒO[‚Ì‚Æ‚«
-                Kekka='ƒ`[ƒ€‚Q‚ÌŸ‚¿';Team2=Team2+1;
-            elseif M(2,J)==3%ƒ`[ƒ€‚Q‚ªƒp[‚Ì‚Æ‚«
-                Kekka='ƒ`[ƒ€‚P‚ÌŸ‚¿';Team1=Team1+1;
+        case 2%
+            if M(2,J)==1
+                Kekka='ãƒãƒ¼ãƒ ï¼’ã®å‹ã¡';Team2=Team2+1;
+            elseif M(2,J)==3
+                Kekka='ãƒãƒ¼ãƒ ï¼‘ã®å‹ã¡';Team1=Team1+1;
             else
-                Kekka='‚ ‚¢‚±';Aiko=Aiko+1;
+                Kekka='ã‚ã„ã“';Aiko=Aiko+1;
             end      
-        case 3%ƒ`[ƒ€‚P‚ªƒp[‚Ì‚Æ‚«
-            if M(2,J)==1%ƒ`[ƒ€‚Q‚ªƒO[‚Ì‚Æ‚«
-                Kekka='ƒ`[ƒ€‚P‚ÌŸ‚¿';Team1=Team1+1;
-            elseif M(2,J)==2%ƒ`[ƒ€‚Q‚ªƒ`ƒ‡ƒL‚Ì‚Æ‚«
-                Kekka='ƒ`[ƒ€‚Q‚ÌŸ‚¿';Team2=Team2+1;
+        case 3
+            if M(2,J)==1
+                Kekka='ãƒãƒ¼ãƒ ï¼‘ã®å‹ã¡';Team1=Team1+1;
+            elseif M(2,J)==2
+                Kekka='ãƒãƒ¼ãƒ ï¼’ã®å‹ã¡';Team2=Team2+1;
             else
-                Kekka='‚ ‚¢‚±';Aiko=Aiko+1;
+                Kekka='ã‚ã„ã“';Aiko=Aiko+1;
             end
     end
-    disp(strcat(num2str(J),'”Ô–Ú‚ÌŸ•‰‚Í', Kekka));
+    disp(strcat(num2str(J),'ç•ªç›®ã®å‹è² ã¯', Kekka));
 end
-disp(strcat('ƒ`[ƒ€‚P‚Í',num2str(Team1),'Ÿ',num2str(Team2),'”s',num2str(Aiko),'ˆø‚«•ª‚¯'));
-disp(strcat('ƒ`[ƒ€‚Q‚Í',num2str(Team2),'Ÿ',num2str(Team1),'”s',num2str(Aiko),'ˆø‚«•ª‚¯'));
+disp(strcat('ãƒãƒ¼ãƒ ï¼‘ã¯',num2str(Team1),'å‹',num2str(Team2),'æ•—',num2str(Aiko),'å¼•ãåˆ†ã‘'));
+disp(strcat('ãƒãƒ¼ãƒ ï¼’ã¯',num2str(Team2),'å‹',num2str(Team1),'æ•—',num2str(Aiko),'å¼•ãåˆ†ã‘'));
