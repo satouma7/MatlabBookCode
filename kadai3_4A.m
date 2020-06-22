@@ -10,4 +10,4 @@ for T=1:Tmax-1
 end
 X=1:Tmax;
 plot(X,S,'g--',X,I,'r',X,R,'b:');
-title(strcat('β=',num2str(b),' /γ=',num2str(g),' /総感染者数',num2str(S(1)-S(Tmax)) ));
+title(strcat('β=',num2str(b),' /γ=',num2str(g),' /総感染者数=',num2str(S(1)-S(Tmax)) ));
