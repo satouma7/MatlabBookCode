@@ -1,7 +1,7 @@
 dt=0.01;Tmax=10000;
-S=zeros(1,Tmax);%sensitive
-I=zeros(1,Tmax);%infected
-R=zeros(1,Tmax);R(1)=0;%recovered
+S=zeros(1,Tmax);
+I=zeros(1,Tmax);
+R=zeros(1,Tmax);R(1)=0;
 X=1:Tmax;
 b=0.001;g=0.1;
 N=[100 200 300 400];
@@ -15,5 +15,5 @@ for J=1:4
         R(T+1)=R(T)+dt*(               g*I(T)   );
     end
     subplot(1,4,J);plot(X,S,'g--',X,I,'r',X,R,'b:');ylim([0 N(J)]);
-    title(strcat('‘Š´õÒ”=',num2str(S(1)-S(Tmax)),' /‘Š´õÒ—¦=',num2str((S(1)-S(Tmax))/N(J)) ));
+    title(strcat('ç·æ„ŸæŸ“è€…æ•°=',num2str(S(1)-S(Tmax)),' /æ„ŸæŸ“è€…ç‡=',num2str((S(1)-S(Tmax))/N(J)) ));
 end
