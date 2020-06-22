@@ -12,5 +12,5 @@ for J=1:4
         R(T+1)=R(T)+dt*(               g(J)*I(T)   );
     end
     subplot(1,4,J);plot(X,S,'g--',X,I,'r',X,R,'b:');
-    title(strcat('ƒÀ=',num2str(b),' /ƒÁ=',num2str(g(J)),' /‘Š´õÒ”=',num2str(S(1)-S(Tmax)) ));
+    title(strcat('Î²=',num2str(b),' /Î³=',num2str(g(J)),' /ç·æ„ŸæŸ“è€…æ•°=',num2str(S(1)-S(Tmax)) ));
 end
