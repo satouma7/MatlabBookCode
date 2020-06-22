@@ -4,50 +4,50 @@ for J=1:10
     for I=1:2
         switch M(I,J)
             case 1
-                Janken='ƒO[';
+                Janken='ã‚°ãƒ¼';
             case 2
-                Janken='ƒ`ƒ‡ƒL';
+                Janken='ãƒãƒ§ã‚­';
             case 3
-                Janken='ƒp[';
+                Janken='ãƒ‘ãƒ¼';
         end
-        disp(strcat('ƒ`[ƒ€',num2str(I),'‚Ì',num2str(J),'l–Ú‚Í', Janken,'‚Å‚·'));
+        disp(strcat('ãƒãƒ¼ãƒ ',num2str(I),'ã®',num2str(J),'äººç›®ã¯', Janken,'ã§ã™'));
     end
     Result=Hantei2(M(1,J),M(2,J));
     switch Result
         case 1
-            Kekka='ƒ`[ƒ€‚P';Team1=Team1+1;
+            Kekka='ãƒãƒ¼ãƒ ï¼‘';Team1=Team1+1;
         case 2
-            Kekka='ƒ`[ƒ€‚Q';Team2=Team2+1;
+            Kekka='ãƒãƒ¼ãƒ ï¼’';Team2=Team2+1;
         case 0
-            Kekka='‚ ‚¢‚±';Aiko=Aiko+1;
+            Kekka='ã‚ã„ã“';Aiko=Aiko+1;
     end
-    disp(strcat(num2str(J),'l–Ú‚Í', Kekka,'‚Å‚·'));
+    disp(strcat(num2str(J),'ç•ªç›®ã®å‹è² ã¯', Kekka));
 end
-disp(strcat('ƒ`[ƒ€‚P‚ÌŒ‹‰Ê‚Í', num2str(Team1),'Ÿ',num2str(Team2),'”s',num2str(Aiko),'ˆø‚«•ª‚¯'));
-disp(strcat('ƒ`[ƒ€‚Q‚ÌŒ‹‰Ê‚Í', num2str(Team2),'Ÿ',num2str(Team1),'”s',num2str(Aiko),'ˆø‚«•ª‚¯'));
+disp(strcat('ãƒãƒ¼ãƒ ï¼‘ã®çµæœã¯', num2str(Team1),'å‹',num2str(Team2),'æ•—',num2str(Aiko),'å¼•ãåˆ†ã‘'));
+disp(strcat('ãƒãƒ¼ãƒ ï¼’ã®çµæœã¯', num2str(Team2),'å‹',num2str(Team1),'æ•—',num2str(Aiko),'å¼•ãåˆ†ã‘'));
 
 function [ R ] = Hantei2( A,B )
     switch A
-        case 1%ƒ`[ƒ€‚P‚ªƒO[‚Ì‚Æ‚«
-            if B==2%ƒ`[ƒ€‚Q‚ªƒ`ƒ‡ƒL‚Ì‚Æ‚«
+        case 1
+            if B==2
                 R=1;
-            elseif B==3%ƒ`[ƒ€‚Q‚ªƒp[‚Ì‚Æ‚«
+            elseif B==3
                 R=2;
             else
                 R=0;
             end
-        case 2%ƒ`[ƒ€‚P‚ªƒ`ƒ‡ƒL‚Ì‚Æ‚«
-            if B==1%ƒ`[ƒ€‚Q‚ªƒO[‚Ì‚Æ‚«
+        case 2
+            if B==1%
                 R=2;
-            elseif B==3%ƒ`[ƒ€‚Q‚ªƒp[‚Ì‚Æ‚«
+            elseif B==3
                 R=1;
             else
                 R=0;
             end      
-        case 3%ƒ`[ƒ€‚P‚ªƒp[‚Ì‚Æ‚«
-            if B==1%ƒ`[ƒ€‚Q‚ªƒO[‚Ì‚Æ‚«
+        case 3
+            if B==1
                 R=1;
-            elseif B==2%ƒ`[ƒ€‚Q‚ªƒ`ƒ‡ƒL‚Ì‚Æ‚«
+            elseif B==2
                 R=2;
             else
                 R=0;
