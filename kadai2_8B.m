@@ -1,14 +1,14 @@
-M=randi(3,2,10);%M=ceil(rand(2,10)*3);
+M=ceil(rand(2,10)*3);
 for J=1:10
     for I=1:2
         if M(I,J)==1
-            Janken='ƒO[';
+            Janken='ã‚°ãƒ¼';
         elseif M(I,J)==2
-            Janken='ƒ`ƒ‡ƒL';
+            Janken='ãƒãƒ§ã‚­';
         else
-            Janken='ƒp[';
+            Janken='ãƒ‘ãƒ¼';
         end
-        disp(strcat('ƒ`[ƒ€',num2str(I),'‚Ì',num2str(J),'l–Ú‚Í', Janken,'‚Å‚·'));
+        disp(strcat('ãƒãƒ¼ãƒ ',num2str(I),'ã®',num2str(J),'äººç›®ã¯', Janken,'ã§ã™'));
     end
 end
 
