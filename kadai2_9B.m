@@ -4,27 +4,27 @@ for J=1:10
     for I=1:2
         switch M(I,J)
             case 1
-                Janken='ã‚°ãƒ¼';
+                Janken='ƒO[';
             case 2
-                Janken='ãƒãƒ§ã‚­';
+                Janken='ƒ`ƒ‡ƒL';
             case 3
-                Janken='ãƒ‘ãƒ¼';
+                Janken='ƒp[';
         end
-        disp(strcat('ãƒãƒ¼ãƒ ',num2str(I),'ã®',num2str(J),'äººç›®ã¯', Janken,'ã§ã™'));
+        disp(strcat('ƒ`[ƒ€',num2str(I),'‚Ì',num2str(J),'l–Ú‚Í', Janken,'‚Å‚·'));
     end
     Result=Hantei2(M(1,J),M(2,J));
     switch Result
         case 1
-            Kekka='ãƒãƒ¼ãƒ ï¼‘';Team1=Team1+1;
+            Kekka='ƒ`[ƒ€‚P';Team1=Team1+1;
         case 2
-            Kekka='ãƒãƒ¼ãƒ ï¼’';Team2=Team2+1;
+            Kekka='ƒ`[ƒ€2';Team2=Team2+1;
         case 0
-            Kekka='ã‚ã„ã“';Aiko=Aiko+1;
+            Kekka='‚ ‚¢‚±';Aiko=Aiko+1;
     end
-    disp(strcat(num2str(J),'ç•ªç›®ã®å‹è² ã¯', Kekka));
+    disp(strcat(num2str(J),'”Ô–Ú‚ÌŸ•‰‚Í', Kekka));
 end
-disp(strcat('ãƒãƒ¼ãƒ ï¼‘ã®çµæœã¯', num2str(Team1),'å‹',num2str(Team2),'æ•—',num2str(Aiko),'å¼•ãåˆ†ã‘'));
-disp(strcat('ãƒãƒ¼ãƒ ï¼’ã®çµæœã¯', num2str(Team2),'å‹',num2str(Team1),'æ•—',num2str(Aiko),'å¼•ãåˆ†ã‘'));
+disp(strcat('ƒ`[ƒ€‚P‚Í', num2str(Team1),'Ÿ',num2str(Team2),'”s',num2str(Aiko),'ˆø‚«•ª‚¯'));
+disp(strcat('ƒ`[ƒ€‚Q‚Í', num2str(Team2),'Ÿ',num2str(Team1),'”s',num2str(Aiko),'ˆø‚«•ª‚¯'));
 
 function [ R ] = Hantei2( A,B )
     switch A
