@@ -1,6 +1,6 @@
-M=round(rand(1,10)*10);
+M=round(rand(1,10)*10);     %—v‘f”10‚ÌƒxƒNƒgƒ‹M‚É0‚©‚ç10‚Ì—”‚ğ‘ã“ü
 I=1;
-while (I<11)&&(M(1,I)<10)
-        disp(strcat(num2str(I),'ç•ªç›®ã¯ ', num2str(M(1,I)),'ã§ã™'));
+while (I<11)&&(M(1,I)<10)   %I‚ª11‚æ‚è¬‚³‚­C‚©‚ÂM‚ÌI”Ô–Ú‚Ì—v‘f‚ª10‚æ‚è¬‚³‚¢ê‡6s–Ú‚Ü‚Å‚Ìƒ‹[ƒv‚ğÀs‚·‚é
+        disp(strcat(num2str(I),'”Ô–Ú‚Í ', num2str(M(1,I)),'‚Å‚·'));
         I=I+1;
 end

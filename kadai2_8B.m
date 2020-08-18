@@ -1,14 +1,13 @@
-M=ceil(rand(2,10)*3);
-for J=1:10
-    for I=1:2
-        if M(I,J)==1
-            Janken='ã‚°ãƒ¼';
-        elseif M(I,J)==2
-            Janken='ãƒãƒ§ã‚­';
-        else
-            Janken='ãƒ‘ãƒ¼';
-        end
-        disp(strcat('ãƒãƒ¼ãƒ ',num2str(I),'ã®',num2str(J),'äººç›®ã¯', Janken,'ã§ã™'));
-    end
-end
-
+M=ceil(rand(2,10)*3);           %2s10—ñ‚Ìs—ñM‚É1‚©‚ç‚R‚Ìƒ‰ƒ“ƒ_ƒ€‚È®”‚ğ‘ã“ü
+for J=1:10                      %J‚ğ1‚©‚ç10‚Ü‚Å‘‰Á‚³‚¹‚éiJ‰ñ–Új
+    for I=1:2                   %I‚ğ1‚©‚ç2‚Ü‚Å‘‰Á‚³‚¹‚éiƒ`[ƒ€Ij
+        if M(I,J)==1            %‚à‚µM(I,J)‚ª1‚Ìê‡C
+            Janken='ƒO[';     % Janken‚É'ƒO['‚ğ‘ã“ü
+        elseif M(I,J)==2        %‚»‚¤‚Å‚Í‚È‚­‚à‚µM(I,J)‚ª2‚Ìê‡C
+            Janken='ƒ`ƒ‡ƒL';    % Janken‚É'ƒ`ƒ‡ƒL'‚ğ‘ã“ü
+        else                    %‚»‚êˆÈŠO‚Ìê‡C
+            Janken='ƒp[';     % Janken‚É'ƒp['‚ğ‘ã“ü
+        end                     %4s–Ú‚©‚ç‚Ìif•¶‚Í‚±‚±‚Ü‚Å
+        disp(strcat('ƒ`[ƒ€',num2str(I),'‚Ì',num2str(J),'l–Ú‚Í', Janken,'‚Å‚·'));  %ƒ`[ƒ€I‚ÌJl–Ú‚Ì‚¶‚á‚ñ‚¯‚ñ‚Ìè‚ğ•\¦
+    end                         %3s–Ú‚Ü‚Å–ß‚é
+end                             %2s–Ú‚Ü‚Å–ß‚é
