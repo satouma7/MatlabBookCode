@@ -1,6 +1,6 @@
-M=round(10*rand(4,5));
-for I=1:4
-    for J=1:5
-        disp(strcat(num2str(I),'è¡Œ',num2str(J),'åˆ—ã¯', num2str(M(I,J)),'ã§ã™'));
-    end
-end
+M=round(10*rand(4,5));  %4s5—ñ‚Ìs—ñM‚É0‚©‚ç10‚Ì—”‚ğ‘ã“ü
+for I=1:4               %I‚ğ1‚©‚ç4‚Ü‚Å‘‰Á‚³‚¹‚éisj
+    for J=1:5           %J‚ğ1‚©‚ç5‚Ü‚Å‘‰Á‚³‚¹‚éi—ñj
+        disp(strcat(num2str(I),'s',num2str(J),'—ñ‚Í', num2str(M(I,J)),'‚Å‚·')); %s—ñM‚ÌIsJ—ñ‚Ì’l‚ğ•\¦‚·‚é
+    end                 %3s–Ú‚Ü‚Å–ß‚é
+end                     %2s–Ú‚Ü‚Å–ß‚é

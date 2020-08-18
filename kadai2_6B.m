@@ -1,9 +1,9 @@
-A=ceil(3*rand+2);
-B=fix(4*rand+3);
-M=round(10*rand(A,B));
-disp(strcat(num2str(A),'è¡Œ',num2str(B),'åˆ—ã®è¡Œåˆ—ã§ã™'));
-for i=1:A
-    for j=1:B
-        disp(strcat(num2str(i),'è¡Œ',num2str(j),'åˆ—ã¯', num2str(M(i,j)),'ã§ã™'));
-    end
-end
+A=ceil(3*rand+2);       %A‚É3‚©‚ç‚T‚Ìƒ‰ƒ“ƒ_ƒ€‚È®”‚ğ‘ã“ü
+B=fix(4*rand+3);        %B‚É4‚©‚ç7‚Ìƒ‰ƒ“ƒ_ƒ€‚È®”‚ğ‘ã“ü
+M=round(10*rand(A,B));  %AsB—ñ‚Ìs—ñM‚É0‚©‚ç10‚Ì—”‚ğ‘ã“ü
+disp(strcat(num2str(A),'s',num2str(B),'—ñ‚Ìs—ñ‚Å‚·'));   %s—ñM‚Ìs”A‚Æ—ñ”B‚ğ•\¦‚·‚é
+for i=1:A               %I‚ğ1‚©‚çA‚Ü‚Å‘‰Á‚³‚¹‚éisj
+    for j=1:B           %J‚ğ1‚©‚çB‚Ü‚Å‘‰Á‚³‚¹‚éi—ñj
+        disp(strcat(num2str(i),'s',num2str(j),'—ñ‚Í', num2str(M(i,j)),'‚Å‚·')); %s—ñM‚ÌAsB—ñ‚Ì’l‚ğ•\¦‚·‚é
+    end                 %6s–Ú‚Ü‚Å–ß‚é
+end                     %5s–Ú‚Ü‚Å–ß‚é
