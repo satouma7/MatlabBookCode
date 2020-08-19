@@ -1,19 +1,19 @@
 dt=0.01;Tmax=10000;
-S=zeros(1,Tmax);
-I=zeros(1,Tmax);
-R=zeros(1,Tmax);R(1)=0;
+S=zeros(1,Tmax);%–¢Š´õÒ
+I=zeros(1,Tmax);%Š´õÒ
+R=zeros(1,Tmax);R(1)=0;%‰ñ•œÒ
 X=1:Tmax;
 b=0.001;g=0.1;
-N=[100 200 300 400];
-figure('Position',[0 400 1000 250]);
-for J=1:4
-    I(1)=N(J)*0.01;
-    S(1)=N(J)-I(1);
-    for T=1:Tmax-1
+N=[100 200 300 400];    %N‚Ì’l‚ğ—v‘f”4‚ÌƒxƒNƒgƒ‹‚Æ‚µ‚Ä—pˆÓ
+figure('Position',[0 400 1000 250]);    %ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ÆˆÊ’u‚Í“K‹X’²ß‚µ‚Ä‰º‚³‚¢
+for J=1:4               %J‚ğ1‚©‚ç4‚Ü‚Å‘‰Á‚³‚¹‚é
+    I(1)=N(J)*0.01;     %N(J)‚Ì’l‚©‚ç‰Šú‚ÌŠ´õÒ”I(1)‚ğŒvZ
+    S(1)=N(J)-I(1);     %N(J)‚ÆI(1)‚©‚ç‰Šú‚Ì–¢Š´õÒ”S(1)‚ğŒvZ
+    for T=1:Tmax-1      %I(1)‚ÆS(1)‚Ì’l‚É‰‚¶‚ÄS, I, R‚ÌŠÔ•Ï‰»‚ğŒvZ
         S(T+1)=S(T)+dt*( -b*S(T)*I(T)           );
         I(T+1)=I(T)+dt*(  b*S(T)*I(T) -g*I(T)   );
         R(T+1)=R(T)+dt*(               g*I(T)   );
     end
     subplot(1,4,J);plot(X,S,'g--',X,I,'r',X,R,'b:');ylim([0 N(J)]);
-    title(strcat('ç·æ„ŸæŸ“è€…æ•°=',num2str(S(1)-S(Tmax)),' /æ„ŸæŸ“è€…ç‡=',num2str((S(1)-S(Tmax))/N(J)) ));
-end
+    title(strcat('‘Š´õÒ”=',num2str(S(1)-S(Tmax)),' /Š´õÒ—¦=',num2str((S(1)-S(Tmax))/N(J)) ));
+end     %9s–Ú‚Ü‚Å–ß‚èCJ‚Ì’l‚ğ‘‰Á‚µ‚ÄŒvZ‚µ’¼‚·

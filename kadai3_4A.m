@@ -1,7 +1,7 @@
 dt=0.01;Tmax=10000;
-S=zeros(1,Tmax);S(1)=99;
-I=zeros(1,Tmax);I(1)=1;
-R=zeros(1,Tmax);R(1)=0;
+S=zeros(1,Tmax);S(1)=99;%–¢Š´õÒ
+I=zeros(1,Tmax);I(1)=1;%Š´õÒ
+R=zeros(1,Tmax);R(1)=0;%‰ñ•œÒ
 b=0.01;g=0.01;
 for T=1:Tmax-1
     S(T+1)=S(T)+dt*( -b*S(T)*I(T)           );
@@ -10,4 +10,4 @@ for T=1:Tmax-1
 end
 X=1:Tmax;
 plot(X,S,'g--',X,I,'r',X,R,'b:');
-title(strcat('Î²=',num2str(b),' /Î³=',num2str(g),' /ç·æ„ŸæŸ“è€…æ•°=',num2str(S(1)-S(Tmax)) ));
+title(strcat('ƒÀ=',num2str(b),' /ƒÁ=',num2str(g),' /‘Š´õÒ”=',num2str(S(1)-S(Tmax)) ));

@@ -12,5 +12,4 @@ for T=1:Tmax-1
     M(T+1)=M(T)+dt*(d2*S(T)+(p3-d3)*M(T));
 end
 X=1:Tmax;
-%plot(X,L,'k--',X,S,'g:',X,M,'m');
-plot(X,L,'k',X,S,'g',X,M,'m');
+plot(X,L,'k--',X,S,'g:',X,M,'m');   %L破線(黒)，S点線(緑)，M実線(紫)でプロット
