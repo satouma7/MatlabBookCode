@@ -6,11 +6,11 @@ for T=1:100
         end
     end
 end
-mov=VideoWriter('kadai2_11D', 'MPEG-4');
-open(mov);
+mov=VideoWriter('kadai2_11D', 'MPEG-4');    %ムービーファイルを保存するためのオブジェクトmovを作成
+open(mov);  %movの内容に基づきムービーファイルを開く
 for T=1:100
     imagesc(Z(:,:,T),[-3 3]);set(gca,'YDir','normal');colorbar;
-    writeVideo(mov, getframe(gcf));
+    writeVideo(mov, getframe(gcf)); %movの内容に基づきムービーを1フレーム書き込む
     pause(0.01);
 end
-close(mov);
+close(mov); %movで指定したムービーファイルを閉じる

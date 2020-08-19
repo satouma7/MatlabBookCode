@@ -1,13 +1,12 @@
-Z=zeros(100,100,100);
-for T=1:100
-    for X=1:100
-        for Y=1:100
-            Z(Y,X,T)=sin(pi/100*X+2*pi/100*T)+2*cos(2*pi/100*Y+3*pi/100*T);
-        end
-    end
-end
-for T=1:100
-    imagesc(Z(:,:,T));set(gca,'YDir','normal');colorbar;
-    pause(0.01);
-end
-
+Z=zeros(100,100,100);   %100×100×100の3次元行列Zに0を代入 
+for T=1:100             %Tを1から100まで増加させてZの値を計算
+    for X=1:100         %Xを1から100まで増加させる
+        for Y=1:100     %Yを1から100まで増加させる
+            Z(Y,X,T)=sin(pi/100*X+2*pi/100*T)+2*cos(2*pi/100*Y+3*pi/100*T); %時刻TにおいてZ(Y,X,T)の値を計算
+        end             %4行目まで戻る
+    end                 %3行目まで戻る
+end                     %2行目まで戻る
+for T=1:100             %Tを1から100まで増加させてアニメーション表示
+    imagesc(Z(:,:,T));set(gca,'YDir','normal');colorbar;    %時刻Tにおける2次元行列Z(:,:,T)の内容を表示
+    pause(0.01);        %0.01秒待つ
+end                     %9行目まで戻る

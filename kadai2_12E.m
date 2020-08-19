@@ -4,7 +4,7 @@ for T=1:100
         for Y=1:100
             V=X-50;W=Y-50;
             R=sqrt(V*V+W*W);
-            Theta=atan(W/V)+2*pi/100*T+pi/2+pi*(X<50);
+            Theta=atan(W/V)+2*pi/100*T+pi/2+pi*(X<50);  %atan(W/V)‚ÉƒÎ/2‚Æ2ƒÎ/100*T‚ð‰Á‚¦‚ÄTheta‚ðŒvŽZ X<50 (¶”¼•ª)‚Ìê‡‚Í‚³‚ç‚ÉƒÎ‚ð‰Á‚¦‚é
             if Theta>2*pi
                 Theta=Theta-2*pi;
             end
