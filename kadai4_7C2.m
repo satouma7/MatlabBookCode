@@ -1,10 +1,10 @@
 Tmax=2000;Xmax=100;
 A=zeros(Xmax,Xmax,Tmax);I=zeros(Xmax,Xmax,Tmax);
-c=zeros(Xmax,Xmax);c(48:52,48:52)=1;                                                      
+c=zeros(Xmax,Xmax);c(48:52,48:52)=1;    %A‚ÌŽY¶‘¬“xc‚Ì’l‚ðÝ’è                                                
 dt=0.01;da=20;aa=6;di=0.1;ii=-2;ia=-30;ai=0.5;
 Amax=2;Imax=2;
 for T=1:Tmax
-    A(:,:,T+1)=dt*(4*da*del2(A(:,:,T))+aa*A(:,:,T)+ia*I(:,:,T)+c)+A(:,:,T);
+    A(:,:,T+1)=dt*(4*da*del2(A(:,:,T))+aa*A(:,:,T)+ia*I(:,:,T)+c)+A(:,:,T);%A‚ÌŽY¶‘¬“xc‚ð’Ç‰Á
     I(:,:,T+1)=dt*(4*di*del2(I(:,:,T))+ii*I(:,:,T)+ai*A(:,:,T))+I(:,:,T);
     A(:,:,T+1)=A(:,:,T+1).*((A(:,:,T+1)>0)&(A(:,:,T+1)<Amax))+Amax.*(A(:,:,T+1)>Amax);
     I(:,:,T+1)=I(:,:,T+1).*((I(:,:,T+1)>0)&(I(:,:,T+1)<Imax))+Imax.*(I(:,:,T+1)>Imax);

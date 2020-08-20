@@ -2,7 +2,7 @@ Tmax=200;Xmax=25;
 dt=0.1;dx=1;dx2=dx*dx;
 de=1;ke=1;ae=1;ea=10;kn=1;dn=0.25;dc=0.25;kd=1;ad=1;
 E=zeros(Xmax,Xmax,Tmax);En=zeros(Xmax,Xmax);
-N=zeros(Xmax,Xmax,Tmax);D=zeros(Xmax,Xmax,Tmax);Nmutant=ones(Xmax,Xmax);Nmutant(6:20,6:20)=0;
+N=zeros(Xmax,Xmax,Tmax);D=zeros(Xmax,Xmax,Tmax);Nmutant=ones(Xmax,Xmax);Nmutant(6:20,6:20)=0;%Notch変異領域のパターン
 A=zeros(Xmax,Xmax,Tmax);A(:,1,1)=0.5;
 Etemp=zeros(Xmax,Xmax);Eright=Etemp;Eleft=Etemp;Eup=Etemp;Edown=Etemp;
 for T=1:Tmax-1
@@ -14,7 +14,7 @@ for T=1:Tmax-1
     E(:,:,T+1)=dt*(de*(Eright+Eleft+Eup+Edown-4*Etemp)/dx2-ke*E(:,:,T)+ae*A(:,:,T).*(1-A(:,:,T)))+E(:,:,T);   
     for X=2: Xmax-1
         for Y=2:Xmax-1
-            N(Y,X,T+1)= N(Y,X,T) + dt*(( dn*( D(Y,X+1,T)+D(Y,X-1,T)+D(Y+1,X,T)+D(Y-1,X,T)) -dc*D(Y,X,T))*Nmutant(Y,X) -kn*N(Y,X,T) );                     
+            N(Y,X,T+1)= N(Y,X,T) + dt*(( dn*( D(Y,X+1,T)+D(Y,X-1,T)+D(Y+1,X,T)+D(Y-1,X,T)) -dc*D(Y,X,T))*Nmutant(Y,X) -kn*N(Y,X,T));%Notch変異領域存在下においてNの側方抑制を計算
         end
     end
     for X=2: Xmax-1        

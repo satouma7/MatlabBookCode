@@ -1,10 +1,10 @@
 Xmax=100;Tmax=100;
 dt=0.1;d=2;dx=1;
 E=zeros(Xmax,Xmax,Tmax);
-E(41:60,41:60,1)=1;%E(1:20,41:60,1)=rand(20);
+E(41:60,41:60,1)=1;%‚à‚µ‚­‚ÍE(1:20,41:60,1)=rand(20);
 tic;
 for T=1:Tmax-1
-    E(:,:,T+1)=4*dt*d*del2(E(:,:,T))+E(:,:,T);
+    E(:,:,T+1)=4*dt*d*del2(E(:,:,T))+E(:,:,T);%del2‚É‚æ‚éE‚ÌŠgŽU‚ÌŒvŽZ
 end
 toc;
 for T=1:Tmax

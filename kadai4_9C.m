@@ -4,14 +4,14 @@ de=1;ke=1;ae=1;ea=10;kn=1;dn=0.25;dc=0.25;kd=1;ad=1;
 E=zeros(Xmax,Xmax,Tmax);En=zeros(Xmax,Xmax);
 N=zeros(Xmax,Xmax,Tmax);D=zeros(Xmax,Xmax,Tmax);
 A=zeros(Xmax,Xmax,Tmax);A(:,1,1)=0.5;
-Etemp=zeros(Xmax,Xmax);Eright=Etemp;Eleft=Etemp;Eup=Etemp;Edown=Etemp;Emutant=ones(Xmax,Xmax);Emutant(6:20,6:20)=0;
+Etemp=zeros(Xmax,Xmax);Eright=Etemp;Eleft=Etemp;Eup=Etemp;Edown=Etemp;Emutant=ones(Xmax,Xmax);Emutant(6:20,6:20)=0;%EGF変異領域のパターン
 for T=1:Tmax-1
     Etemp=E(:,:,T);
     Eright(:,Xmax)=Etemp(:,Xmax);Eright(:,1:Xmax-1)=Etemp(:,2:Xmax);
     Eleft(:,1)=Etemp(:,1);Eleft(:,2:Xmax)=Etemp(:,1:Xmax-1);
     Eup(Xmax,:)=Etemp(Xmax,:);Eup(1:Xmax-1,:)=Etemp(2:Xmax,:);
     Edown(1,:)=Etemp(1,:);Edown(2:Xmax,:)=Etemp(1:Xmax-1,:);
-    E(:,:,T+1)=dt*(de*(Eright+Eleft+Eup+Edown-4*Etemp)/dx2-ke*E(:,:,T)+ae*A(:,:,T).*(1-A(:,:,T)).*Emutant)+E(:,:,T);   
+    E(:,:,T+1)=dt*(de*(Eright+Eleft+Eup+Edown-4*Etemp)/dx2-ke*E(:,:,T)+ae*A(:,:,T).*(1-A(:,:,T)).*Emutant)+E(:,:,T);%EGF変異領域存在下においてEの反応拡散を計算   
     for X=2: Xmax-1
         for Y=2:Xmax-1
             N(Y,X,T+1)= N(Y,X,T) + dt*( dn*( D(Y,X+1,T)+D(Y,X-1,T)+D(Y+1,X,T)+D(Y-1,X,T)) -dc*D(Y,X,T) -kn*N(Y,X,T) );                     
