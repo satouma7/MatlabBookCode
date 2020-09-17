@@ -1,7 +1,7 @@
 Xmax=100;Tmax=100;
 dt=0.1;d=1;dx=1;dx2=dx*dx;
 E=zeros(Xmax,Xmax,Tmax);
-E(41:60,41:60,1)=1;%もしくはE(1:20,41:60,1)=rand(20);%もしくはE(1:20,41:60,1)=rand(20);
+E(41:60,41:60,1)=1;%もしくはE(1:20,41:60,1)=rand(20);
 Etemp=zeros(Xmax,Xmax);Eright=zeros(Xmax,Xmax);Eleft=zeros(Xmax,Xmax);Eup=zeros(Xmax,Xmax);Edown=zeros(Xmax,Xmax);%Etemp, Eright,Eleft, Eup, Edownを用意(省略可)
 tic;
 for T=1:Tmax
