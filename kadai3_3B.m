@@ -2,8 +2,8 @@ dt=0.01;Tmax=30000;
 L=zeros(1,Tmax);L(1)=1;%LT-HSC
 S=zeros(1,Tmax);S(1)=0;%ST-HSC
 M=zeros(1,Tmax);M(1)=0;%MPP
-Cl=zeros(1,Tmax);Cl(1)=0;%リンパ球共通前駆細胞
-Cm=zeros(1,Tmax);Cm(1)=0;%骨髄系共通前駆細胞
+Cl=zeros(1,Tmax);Cl(1)=0;%CLP
+Cm=zeros(1,Tmax);Cm(1)=0;%CMP
 p1=0.009;p2=0.042;p3=4;
 d1=0.009;d2=0.045;d3=0.022;d4=3.992;d5=0.00;d6=0.5;
 for T=1:Tmax-1
