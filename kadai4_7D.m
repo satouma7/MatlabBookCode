@@ -1,20 +1,20 @@
 Tmax=5000;Xmax=100;
 A=zeros(Xmax,Xmax,Tmax);I=zeros(Xmax,Xmax,Tmax);
-A(46:50,46:50,1)=1; %A‚Ì‰Šú•ª•z‚ğİ’è ‚à‚µ‚­‚Í A(:,:,1)=rand(Xmax,Xmax);
-Ap=zeros(Xmax,Xmax);Ip=zeros(Xmax,Xmax); %2ŸŒ³s—ñAp‚ÆIp‚ğ—pˆÓ
+A(46:50,46:50,1)=1; %Aã®åˆæœŸåˆ†å¸ƒã‚’è¨­å®š ã‚‚ã—ãã¯ A(:,:,1)=rand(Xmax);
+Ap=zeros(Xmax,Xmax);Ip=zeros(Xmax,Xmax); %2æ¬¡å…ƒè¡Œåˆ—Apã¨Ipã‚’ç”¨æ„
 dt=0.1;dx=1;
 da=0.02;di=0.5;ka=0.03;ki=0.06;
 c1=0.08;c2=-0.08;c3=0.1;c4=0.11;c5=0;c6=-0.15;
 Apmax=0.2;Ipmax=0.5;
 for T=1:Tmax-1   
-   Ap=c1*A(:,:,T)+c2*I(:,:,T)+c3;   %A‚ÌY¶—ÊAp‚ğŒvZ
-   Ip=c4*A(:,:,T)+c5*I(:,:,T)+c6;   %I‚ÌY¶—ÊIp‚ğŒvZ
-   Ap=((Ap<Apmax)&(Ap>0)).*Ap+(Ap>Apmax).*Apmax;    %Ap‚ÌãŒÀ‚Æ‰ºŒÀ‚ğİ’è
-   Ip=((Ip<Ipmax)&(Ip>0)).*Ip+(Ip>Ipmax).*Ipmax;    %Ip‚ÌãŒÀ‚Æ‰ºŒÀ‚ğİ’è
+   Ap=c1*A(:,:,T)+c2*I(:,:,T)+c3;   %Aã®ç”£ç”Ÿé‡Apã‚’è¨ˆç®—
+   Ip=c4*A(:,:,T)+c5*I(:,:,T)+c6;   %Iã®ç”£ç”Ÿé‡Ipã‚’è¨ˆç®—
+   Ap=((Ap<Apmax)&(Ap>0)).*Ap+(Ap>Apmax).*Apmax;    %Apã®ä¸Šé™ã¨ä¸‹é™ã‚’è¨­å®š
+   Ip=((Ip<Ipmax)&(Ip>0)).*Ip+(Ip>Ipmax).*Ipmax;    %Ipã®ä¸Šé™ã¨ä¸‹é™ã‚’è¨­å®š
    A(:,:,T+1)=dt*(4*da*del2(A(:,:,T))+Ap-ka*A(:,:,T))+A(:,:,T);
    I(:,:,T+1)=dt*(4*di*del2(I(:,:,T))+Ip-ki*I(:,:,T))+I(:,:,T);
 end
-figure('Position',[0 300 1000 400]);    %ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ÆˆÊ’u‚Í“K‹X’²ß‚µ‚Ä‰º‚³‚¢
+figure('Position',[0 300 1000 400]);    %ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã¨ä½ç½®ã¯é©å®œèª¿ç¯€ã™ã‚‹
 for T=1:100:Tmax
     subplot(1,2,1);imagesc(A(:,:,T),[0 10]);set(gca,'YDir','normal');colorbar;
     subplot(1,2,2);imagesc(I(:,:,T),[0 10]);set(gca,'YDir','normal');colorbar;
