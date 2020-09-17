@@ -2,9 +2,9 @@ Xmax=100;Tmax=500;
 B=zeros(Xmax,Xmax,Tmax);S=zeros(Xmax,Xmax,Tmax);
 dt=0.1;dx=1;dx2=dx*dx;d=1;k=0.1;a=1;
 c=zeros(100,100);c(:,48:53)=0.5;
-Btemp=B(:,:,1);Bright=Btemp;Bleft=Btemp;Bup=Btemp;Bdown=Btemp;%È—ª‰Â
+Btemp=B(:,:,1);Bright=Btemp;Bleft=Btemp;Bup=Btemp;Bdown=Btemp;%çœç•¥å¯
 for T=1:Tmax-1
-    Btemp=B(:,:,T);     %ˆÈ‰ºCs—ñ‚ğg‚Á‚½B‚Ì”½‰ŠgU‚Ì‚‘¬ŒvZ
+    Btemp=B(:,:,T);     %ä»¥ä¸‹ï¼Œè¡Œåˆ—ã‚’ä½¿ã£ãŸBã®åå¿œæ‹¡æ•£ã®é«˜é€Ÿè¨ˆç®—
     Bright(:,Xmax)=Btemp(:,Xmax);Bright(:,1:Xmax-1)=Btemp(:,2:Xmax);
     Bleft(:,1)=Btemp(:,1);Bleft(:,2:Xmax)=Btemp(:,1:Xmax-1);
     Bup(Xmax,:)=Btemp(Xmax,:);Bup(1:Xmax-1,:)=Btemp(2:Xmax,:);
@@ -12,8 +12,8 @@ for T=1:Tmax-1
     B(:,:,T+1)=dt*(d/dx2*(Bright+Bleft+Bup+Bdown-4*Btemp)-k*Btemp+c)+Btemp;
     S(:,:,T+1)=dt*(a*Btemp-k*S(:,:,T))+S(:,:,T);
 end
-figure('Position',[0 300 1000 400]);    %ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ÆˆÊ’u‚Í“K‹X’²ß‚µ‚Ä‰º‚³‚¢
-for T=1:Tmax        %‚à‚µ‚­‚Í for T=1:20:Tmax
+figure('Position',[0 300 1000 400]);    %ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã¨ä½ç½®ã¯é©å®œèª¿ç¯€ã™ã‚‹
+for T=1:Tmax        %ã‚‚ã—ãã¯ for T=1:20:Tmax
     subplot(1,2,1);imagesc(B(:,:,T),[0 1]);set(gca,'YDir','normal');colorbar;
     subplot(1,2,2);imagesc(S(:,:,T),[0 1]);set(gca,'YDir','normal');colorbar;
     pause(0.0001);
