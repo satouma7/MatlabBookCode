@@ -1,11 +1,11 @@
 Xmax=100;Tmax=100;
 dt=0.1;d=1;dx=1;dx2=dx*dx;
 E=zeros(Xmax,Xmax,Tmax);
-E(41:60,41:60,1)=1;%‚à‚µ‚­‚ÍE(1:20,41:60,1)=rand(20);
-Etemp=zeros(Xmax,Xmax);Eright=zeros(Xmax,Xmax);Eleft=zeros(Xmax,Xmax);Eup=zeros(Xmax,Xmax);Edown=zeros(Xmax,Xmax);%Etemp, Eright,Eleft, Eup, Edown‚ğ—pˆÓ(È—ª‰Â)
+E(41:60,41:60,1)=1;%ã‚‚ã—ãã¯E(1:20,41:60,1)=rand(20);%ã‚‚ã—ãã¯E(1:20,41:60,1)=rand(20);
+Etemp=zeros(Xmax,Xmax);Eright=zeros(Xmax,Xmax);Eleft=zeros(Xmax,Xmax);Eup=zeros(Xmax,Xmax);Edown=zeros(Xmax,Xmax);%Etemp, Eright,Eleft, Eup, Edownã‚’ç”¨æ„(çœç•¥å¯)
 tic;
 for T=1:Tmax
-    Etemp=E(:,:,T);     %8~13s–Ú‚ÅCs—ñ‚ğ—p‚¢‚½E‚ÌŠgU‚ÌŒvZ
+    Etemp=E(:,:,T);     %8~13è¡Œç›®ã§ï¼Œè¡Œåˆ—ã‚’ç”¨ã„ãŸEã®æ‹¡æ•£ã®è¨ˆç®—
     Eright(:,100)=Etemp(:,100);Eright(:,1:99)=Etemp(:,2:100);
     Eleft(:,1)=Etemp(:,1);Eleft(:,2:100)=Etemp(:,1:99);
     Eup(100,:)=Etemp(100,:);Eup(1:99,:)=Etemp(2:100,:);
