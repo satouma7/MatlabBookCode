@@ -1,12 +1,12 @@
 Tmax=500;Xmax=100;
 A=zeros(Xmax,Xmax,Tmax);I=zeros(Xmax,Xmax,Tmax);
-A(48:52,48:52,1)=1; %A‚ÌT=1‚É‚¨‚¯‚é‰Šú•ª•z‚ğİ’è  
+A(48:52,48:52,1)=1; %Aã®T=1ã«ãŠã‘ã‚‹åˆæœŸåˆ†å¸ƒã‚’è¨­å®š  
 dt=0.01;da=20;aa=6;di=0.1;ii=-2;ia=-30;ai=0.5;
-for T=1:Tmax        %ˆÈ‰ºCdel2‚É‚æ‚éA‚ÆI‚Ì”½‰ŠgU‚ÌŒvZ
+for T=1:Tmax        %ä»¥ä¸‹ï¼Œdel2ã«ã‚ˆã‚‹Aã¨Iã®åå¿œæ‹¡æ•£ã®è¨ˆç®—
     A(:,:,T+1)=dt*(4*da*del2(A(:,:,T))+aa*A(:,:,T)+ia*I(:,:,T))+A(:,:,T);
     I(:,:,T+1)=dt*(4*di*del2(I(:,:,T))+ii*I(:,:,T)+ai*A(:,:,T))+I(:,:,T);
 end
-figure('Position',[0 300 1000 400]);    %ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ÆˆÊ’u‚Í“K‹X’²ß‚µ‚Ä‰º‚³‚¢
+figure('Position',[0 300 1000 400]);    %ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã¨ä½ç½®ã¯é©å®œèª¿ç¯€ã™ã‚‹
 for T=1:20:Tmax
     subplot(1,2,1);imagesc(A(:,:,T),[0 2]);set(gca,'YDir','normal');colorbar;
     subplot(1,2,2);imagesc(I(:,:,T),[0 2]);set(gca,'YDir','normal');colorbar;
