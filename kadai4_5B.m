@@ -4,10 +4,10 @@ dt=0.1;d=1;k=0.1;a=1;
 c=zeros(100,100);c(:,48:53)=0.5;
 for T=1:Tmax-1
     B(:,:,T+1)=dt*(4*d*del2(B(:,:,T))-k*B(:,:,T)+c)+B(:,:,T);
-    S(:,:,T+1)=dt*(a*B(:,:,T)-k*S(:,:,T))+S(:,:,T); %S‚ÌY¶E•ª‰ğ‚ÌŒvZ
+    S(:,:,T+1)=dt*(a*B(:,:,T)-k*S(:,:,T))+S(:,:,T); %Sã®ç”£ç”Ÿãƒ»åˆ†è§£ã®è¨ˆç®—
 end
-figure('Position',[0 300 1000 400]);    %ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ÆˆÊ’u‚Í“K‹X’²ß‚µ‚Ä‰º‚³‚¢
-for T=1:Tmax        %‚à‚µ‚­‚Í for T=1:20:Tmax
+figure('Position',[0 300 1000 400]);    %ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã¨ä½ç½®ã¯é©å®œèª¿ç¯€ã™ã‚‹
+for T=1:Tmax        %ã‚‚ã—ãã¯ for T=1:20:Tmax
     subplot(1,2,1);imagesc(B(:,:,T),[0 1]);set(gca,'YDir','normal');colorbar;
     subplot(1,2,2);imagesc(S(:,:,T),[0 1]);set(gca,'YDir','normal');colorbar;
     pause(0.0001);
