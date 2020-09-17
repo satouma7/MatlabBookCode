@@ -1,8 +1,8 @@
 dt=0.01;Tmax=10000;dint=1000;
 d=zeros(1,Tmax);d(dint-100:dint)=1;
 d=repmat(d(1,1:dint),1,fix(Tmax/dint));
-G=zeros(1,Tmax);G(1)=1;%ブドウ糖濃度
-I=zeros(1,Tmax);I(1)=1;%インスリン濃度
+G=zeros(1,Tmax);G(1)=1;%繝悶ラ繧ｦ邉匁ｿ�蠎ｦ
+I=zeros(1,Tmax);I(1)=1;%繧､繝ｳ繧ｹ繝ｪ繝ｳ豼�蠎ｦ
 a=1;b=1;k1=0.1;k2=0.1;
 for T=1:Tmax-1
     G(T+1)=G(T)+dt*( -k1*G(T)*(1+a*I(T))      +   d(T)  );
