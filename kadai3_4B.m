@@ -1,7 +1,7 @@
 dt=0.01;Tmax=10000;dint=1000;
 d=zeros(1,Tmax);d(dint-100:dint)=1;
 d=repmat(d(1,1:dint),1,fix(Tmax/dint));p=d;
-G=zeros(1,Tmax);G(1)=1;%ブドウ糖濃度
+G=zeros(1,Tmax);G(1)=1;%血糖値
 I=zeros(1,Tmax);I(1)=1;%インスリン濃度
 a=1;b=0;k1=0.1;k2=0.1;
 for T=1:Tmax-1
