@@ -1,40 +1,40 @@
 Tmax=200;Xmax=25;
 dt=0.1;dx=1;dx2=dx*dx;
 de=1;ke=1;ae=1;ea=10;kn=1;dn=0.25;dc=0.25;kd=1;ad=1;
-E=zeros(Xmax,Xmax,Tmax);En=zeros(Xmax,Xmax);    %En‚Í2ŸŒ³s—ñ
+E=zeros(Xmax,Xmax,Tmax);En=zeros(Xmax,Xmax);    %Enã¯2æ¬¡å…ƒè¡Œåˆ—
 N=zeros(Xmax,Xmax,Tmax);D=zeros(Xmax,Xmax,Tmax);
 A=zeros(Xmax,Xmax,Tmax);A(:,1,1)=0.5;
 Etemp=zeros(Xmax,Xmax);Eright=Etemp;Eleft=Etemp;Eup=Etemp;Edown=Etemp;
 for T=1:Tmax-1
-    Etemp=E(:,:,T);     %9~14s–Ú‚ÅE‚Ì”½‰ŠgU‚ÌŒvZ
+    Etemp=E(:,:,T);     %9~14è¡Œç›®ã§Eã®åå¿œæ‹¡æ•£ã®è¨ˆç®—
     Eright(:,Xmax)=Etemp(:,Xmax);Eright(:,1:Xmax-1)=Etemp(:,2:Xmax);
     Eleft(:,1)=Etemp(:,1);Eleft(:,2:Xmax)=Etemp(:,1:Xmax-1);
     Eup(Xmax,:)=Etemp(Xmax,:);Eup(1:Xmax-1,:)=Etemp(2:Xmax,:);
     Edown(1,:)=Etemp(1,:);Edown(2:Xmax,:)=Etemp(1:Xmax-1,:);
     E(:,:,T+1)=dt*(de*(Eright+Eleft+Eup+Edown-4*Etemp)/dx2-ke*E(:,:,T)+ae*A(:,:,T).*(1-A(:,:,T)))+E(:,:,T);   
-    for X=2: Xmax-1     %15~31s–Ú‚ÅN‚Ì‘¤•û—}§‚ÌŒvZ
-        for Y=2:Xmax-1  %15~19s–Ú‚ÅX=2:24, Y=2:24‚Ì—Ìˆæ‚ÌŒvZ
+    for X=2: Xmax-1     %15~31è¡Œç›®ã§Nã®å´æ–¹æŠ‘åˆ¶ã®è¨ˆç®—
+        for Y=2:Xmax-1  %15~19è¡Œç›®ã§X=2:24, Y=2:24ã®é ˜åŸŸã®è¨ˆç®—
             N(Y,X,T+1)= N(Y,X,T) + dt*( dn*( D(Y,X+1,T)+D(Y,X-1,T)+D(Y+1,X,T)+D(Y-1,X,T)) -dc*D(Y,X,T) -kn*N(Y,X,T) );                     
         end
     end
-    for X=2: Xmax-1     %20~23s–Ú‚Åã‰º’[‚ÌŒvZ    
-        N(1,X,T+1)= N(1,X,T) + dt*( dn*( D(1,X+1,T)+D(1,X-1,T)+D(2,X,T)) -dc*D(1,X,T) -kn*N(1,X,T));%Y=1‚ÌŒvZ
-        N(Xmax,X,T+1)= N(Xmax,X,T) + dt*( dn*( D(Xmax,X+1,T)+D(Xmax,X-1,T)+D(Xmax-1,X,T)) -dc*D(Xmax,X,T) -kn*N(Xmax,X,T) );%Y=25‚ÌŒvZ         
+    for X=2: Xmax-1     %20~23è¡Œç›®ã§ä¸Šä¸‹ç«¯ã®è¨ˆç®—    
+        N(1,X,T+1)= N(1,X,T) + dt*( dn*( D(1,X+1,T)+D(1,X-1,T)+D(2,X,T)) -dc*D(1,X,T) -kn*N(1,X,T));%Y=1ã®è¨ˆç®—
+        N(Xmax,X,T+1)= N(Xmax,X,T) + dt*( dn*( D(Xmax,X+1,T)+D(Xmax,X-1,T)+D(Xmax-1,X,T)) -dc*D(Xmax,X,T) -kn*N(Xmax,X,T) );%Y=25ã®è¨ˆç®—         
     end
-    for Y=2: Xmax-1     %24~27s–Ú‚Å¶‰E’[‚ÌŒvZ
-        N(Y,1,T+1)= N(Y,1,T) + dt*( dn*( D(Y+1,1,T)+D(Y-1,1,T)+D(Y,2,T)) -dc*D(Y,1,T) -kn*N(Y,1,T) );%X=1‚ÌŒvZ
-        N(Y,Xmax,T+1)= N(Y,Xmax,T) + dt*( dn*( D(Y+1,Xmax,T)+D(Y-1,Xmax,T)+D(Y,Xmax-1,T)) -dc*D(Y,Xmax,T) -kn*N(Y,Xmax,T) );%X=25‚ÌŒvZ          
+    for Y=2: Xmax-1     %24~27è¡Œç›®ã§å·¦å³ç«¯ã®è¨ˆç®—
+        N(Y,1,T+1)= N(Y,1,T) + dt*( dn*( D(Y+1,1,T)+D(Y-1,1,T)+D(Y,2,T)) -dc*D(Y,1,T) -kn*N(Y,1,T) );%X=1ã®è¨ˆç®—
+        N(Y,Xmax,T+1)= N(Y,Xmax,T) + dt*( dn*( D(Y+1,Xmax,T)+D(Y-1,Xmax,T)+D(Y,Xmax-1,T)) -dc*D(Y,Xmax,T) -kn*N(Y,Xmax,T) );%X=25ã®è¨ˆç®—          
     end       
-    N(1,1,T+1)= N(1,1,T) + dt*( dn*( D(1,2,T)+D(2,1,T)) -dc*D(1,1,T) -kn*N(1,1,T));     %X=1, Y=1‚ÌŒvZ
-    N(Xmax,1,T+1)= N(Xmax,1,T) + dt*( dn*( D(Xmax,2,T)+D(Xmax-1,1,T)) -dc*D(Xmax,1,T) -kn*N(Xmax,1,T) );%X=25, Y=1‚ÌŒvZ       
-    N(1,Xmax,T+1)= N(1,Xmax,T) + dt*( dn*( D(2,Xmax,T)+D(1,Xmax-1,T)) -dc*D(1,Xmax,T) -kn*N(1,Xmax,T) );%X=1, Y=25‚ÌŒvZ
-    N(Xmax,Xmax,T+1)= N(Xmax,Xmax,T) + dt*( dn*( D(Xmax,Xmax-1,T)+D(Xmax-1,Xmax,T)) -dc*D(Xmax,Xmax,T) -kn*N(Xmax,Xmax,T) );%X=25, Y=25‚ÌŒvZ       
-    D(:,:,T+1)=dt*(-kd*D(:,:,T)+ad*A(:,:,T).*(1-A(:,:,T)))+D(:,:,T);    %D‚ÌŠÔ•Ï‰»
-    En=E(:,:,T)-N(:,:,T);En=En.*(En>0);     %En=max{E-N,0} ‚ÌŒvZ
-    A(:,:,T+1)=dt*(ea*(1-A(:,:,T)).*En)+A(:,:,T);       %A‚ÌŠÔ•Ï‰»‚ÌŒvZ
+    N(1,1,T+1)= N(1,1,T) + dt*( dn*( D(1,2,T)+D(2,1,T)) -dc*D(1,1,T) -kn*N(1,1,T));     %X=1, Y=1ã®è¨ˆç®—
+    N(Xmax,1,T+1)= N(Xmax,1,T) + dt*( dn*( D(Xmax,2,T)+D(Xmax-1,1,T)) -dc*D(Xmax,1,T) -kn*N(Xmax,1,T) );%X=25, Y=1ã®è¨ˆç®—       
+    N(1,Xmax,T+1)= N(1,Xmax,T) + dt*( dn*( D(2,Xmax,T)+D(1,Xmax-1,T)) -dc*D(1,Xmax,T) -kn*N(1,Xmax,T) );%X=1, Y=25ã®è¨ˆç®—
+    N(Xmax,Xmax,T+1)= N(Xmax,Xmax,T) + dt*( dn*( D(Xmax,Xmax-1,T)+D(Xmax-1,Xmax,T)) -dc*D(Xmax,Xmax,T) -kn*N(Xmax,Xmax,T) );%X=25, Y=25ã®è¨ˆç®—       
+    D(:,:,T+1)=dt*(-kd*D(:,:,T)+ad*A(:,:,T).*(1-A(:,:,T)))+D(:,:,T);    %Dã®æ™‚é–“å¤‰åŒ–
+    En=E(:,:,T)-N(:,:,T);En=En.*(En>0);     %En=max{E-N,0} ã®è¨ˆç®—
+    A(:,:,T+1)=dt*(ea*(1-A(:,:,T)).*En)+A(:,:,T);       %Aã®æ™‚é–“å¤‰åŒ–ã®è¨ˆç®—
 end
-figure('Position',[0 100 1000 600]);    %ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ÆˆÊ’u‚Í“K‹X’²ß‚µ‚Ä‰º‚³‚¢
-for T=1:10:100      %‚±‚±‚Í“K“–‚É•Ï‚¦‚Ä‰º‚³‚¢
+figure('Position',[0 100 1000 600]);    %ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã¨ä½ç½®ã¯é©å®œèª¿ç¯€ã™ã‚‹
+for T=1:10:100      %ã“ã“ã¯é©å½“ã«å¤‰ãˆã¦ä¸‹ã•ã„
     subplot(2,2,1);imagesc(E(:,:,T),[0 0.5]);set(gca,'YDir','normal');title('EGF');colorbar;
     subplot(2,2,2);imagesc(A(:,:,T),[0 1]);set(gca,'YDir','normal');title('AS-C');colorbar;
     subplot(2,2,3);imagesc(D(:,:,T),[0 0.5]);set(gca,'YDir','normal');title('Delta');colorbar;
