@@ -34,7 +34,7 @@ for T=1:Tmax-1
     A(:,:,T+1)=dt*(ea*(1-A(:,:,T)).*En)+A(:,:,T);       %Aの時間変化の計算
 end
 figure('Position',[0 100 1000 600]);    %ウィンドウのサイズと位置は適宜調節する
-for T=1:10:100      %ここは適当に変えて下さい
+for T=1:10:100      %ここは適当に変える
     subplot(2,2,1);imagesc(E(:,:,T),[0 0.5]);set(gca,'YDir','normal');title('EGF');colorbar;
     subplot(2,2,2);imagesc(A(:,:,T),[0 1]);set(gca,'YDir','normal');title('AS-C');colorbar;
     subplot(2,2,3);imagesc(D(:,:,T),[0 0.5]);set(gca,'YDir','normal');title('Delta');colorbar;
